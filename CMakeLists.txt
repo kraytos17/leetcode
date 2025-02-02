@@ -21,4 +21,4 @@ file(GLOB OCT_SOURCES src/oct/*.cpp)
 file(GLOB NOV_SOURCES src/nov/*.cpp)
 file(GLOB DEC_SOURCES src/dec/*.cpp)
 
-add_executable(leetcode src/main.cpp ${JAN_SOURCES})
+add_executable(leetcode src/main.cpp ${JAN_SOURCES} ${FEB_SOURCES})
