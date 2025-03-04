@@ -34,7 +34,7 @@ public:
                 continue;
             }
 
-            for (int d = 0; d < 4; ++d) {
+            for (auto d = 0uz; d < 4; ++d) {
                 auto ni = i + dirs[d].first;
                 auto nj = j + dirs[d].second;
 
@@ -51,12 +51,3 @@ public:
         return -1;
     }
 };
-
-int main() {
-    std::vector<std::vector<int>> testVec = {{1, 2}, {4, 3}};
-    Solution sol;
-    auto res = sol.minCost(testVec);
-    std::println("Res = {}", res);
-
-    return 0;
-}

@@ -1,48 +1,47 @@
-#include <algorithm>
 #include <cctype>
-#include <stack>
+#include <deque>
 #include <string>
 
 class Solution {
 public:
-    std::string clearDigits(std::string& s) {
-        std::stack<char> stack;
-        std::string res;
+    auto clearDigits(std::string& s) -> std::string {
+        std::deque<char> dq;
+
         for (auto c: s) {
             if (std::isdigit(c)) {
-                if (!stack.empty()) {
-                    stack.pop();
+                if (!dq.empty()) {
+                    dq.pop_back();
                 }
             } else {
-                stack.push(c);
+                dq.push_back(c);
             }
         }
 
-        while (!stack.empty()) {
-            res += stack.top();
-            stack.pop();
-        }
-        std::reverse(res.begin(), res.end());
-
-        return res;
+        return std::string(dq.begin(), dq.end());
     }
 };
 
 // class Solution {
 // public:
 //     std::string clearDigits(std::string& s) {
-//         std::deque<char> dq;
-
-//         for (char c: s) {
+//         std::stack<char> stack;
+//         std::string res;
+//         for (auto c: s) {
 //             if (std::isdigit(c)) {
-//                 if (!dq.empty()) {
-//                     dq.pop_back();
+//                 if (!stack.empty()) {
+//                     stack.pop();
 //                 }
 //             } else {
-//                 dq.push_back(c);
+//                 stack.push(c);
 //             }
 //         }
 
-//         return std::string(dq.begin(), dq.end());
+//         while (!stack.empty()) {
+//             res += stack.top();
+//             stack.pop();
+//         }
+//         std::reverse(res.begin(), res.end());
+
+//         return res;
 //     }
 // };
