@@ -20,7 +20,6 @@ public:
         std::priority_queue<std::tuple<int, int, int>, std::vector<std::tuple<int, int, int>>, std::greater<>> pq;
         std::vector<std::vector<int>> cost(m, std::vector<int>(n, std::numeric_limits<int>::max()));
 
-        pq.emplace(0, 0, 0);
         cost[0][0] = 0;
         while (!pq.empty()) {
             auto [currCost, i, j] = pq.top();
