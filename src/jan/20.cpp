@@ -1,4 +1,3 @@
-#include <iostream>
 #include <unordered_map>
 #include <vector>
 
@@ -31,13 +30,3 @@ public:
         return -1;
     }
 };
-
-int main() {
-    std::vector<int> arr = {1, 3, 4, 2};
-    std::vector<std::vector<int>> mat = {{1, 4}, {2, 3}};
-    Solution sol;
-    auto res = sol.firstCompleteIndex(arr, mat);
-    std::cout << "Result: " << res << std::endl;
-
-    return 0;
-}

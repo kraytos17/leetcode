@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <cstdlib>
 #include <deque>
-#include <iostream>
 #include <unordered_map>
 #include <vector>
 
@@ -8,7 +8,7 @@ class Solution {
 public:
     std::vector<int> lexicographicallySmallestArray(std::vector<int>& nums, int limit) {
         std::vector<int> numsSorted(nums);
-        std::sort(numsSorted.begin(), numsSorted.end());
+        std::ranges::sort(numsSorted);
 
         std::vector<std::deque<int>> groups;
         std::unordered_map<int, int> numToGroup;
@@ -16,7 +16,6 @@ public:
             if (groups.empty() || std::abs(n - groups.back().back()) > limit) {
                 groups.emplace_back();
             }
-
             groups.back().push_back(n);
             numToGroup[n] = groups.size() - 1;
         }
@@ -32,18 +31,3 @@ public:
         return res;
     }
 };
-
-int main() {
-    int limit = 15;
-    std::vector<int> nums = {5, 100, 44, 45, 16, 30, 14, 65, 83, 64};
-    Solution sol;
-    auto res = sol.lexicographicallySmallestArray(nums, limit);
-
-    std::cout << "Result:\n";
-    for (const auto& elem: res) {
-        std::cout << elem << " ";
-    }
-    std::cout << '\n';
-
-    return 0;
-}

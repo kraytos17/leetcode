@@ -6,7 +6,3 @@ public:
 
     }
 };
-
-int main() {
-    
-}

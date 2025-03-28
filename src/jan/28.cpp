@@ -7,18 +7,17 @@ public:
         const int rows = grid.size();
         const int cols = grid[0].size();
         const std::vector<std::pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        
         auto res = 0;
-
-        auto dfs = [&](int x, int y, auto&& dfsRec) -> int {
+        auto dfs = [&](int x, int y, auto&& dfs) -> int {
             if (x < 0 || x >= rows || y < 0 || y >= cols || grid[x][y] == 0) {
                 return 0;
             }
 
             auto fishCount = grid[x][y];
             grid[x][y] = 0;
-
-            for (auto [dx, dy]: directions) {
-                fishCount += dfsRec(x + dx, y + dy, dfsRec);
+            for (const auto& [dx, dy]: directions) {
+                fishCount += dfs(x + dx, y + dy, dfs);
             }
 
             return fishCount;

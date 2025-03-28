@@ -10,7 +10,6 @@ public:
 
         std::vector<int> rowCount(m, 0);
         std::vector<int> colCount(n, 0);
-
         for (auto i = 0uz; i < m; ++i) {
             for (auto j = 0uz; j < n; ++j) {
                 if (grid[i][j] == 1) {
