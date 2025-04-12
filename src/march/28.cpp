@@ -7,13 +7,13 @@ namespace ranges = std::ranges;
 
 class Solution {
 public:
-    std::vector<int> maxPoints(std::vector<std::vector<int>>& grid, std::vector<int>& queries) {
+    constexpr auto maxPoints(std::vector<std::vector<int>>& grid, std::vector<int>& queries) -> std::vector<int> {
         const auto m = grid.size();
         const auto n = grid[0].size();
         const auto k = queries.size();
 
         std::vector<std::pair<int, int>> sortedQueries;
-        for (int i = 0; i < k; ++i) {
+        for (auto i = 0uz; i < k; ++i) {
             sortedQueries.emplace_back(queries[i], i);
         }
         ranges::sort(sortedQueries);
